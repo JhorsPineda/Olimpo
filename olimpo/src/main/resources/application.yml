@@ -1,0 +1,47 @@
+server:
+  port: 8081
+#  ssl:
+#    key-store: classpath:keystore.p12
+#    key-store-password: fabrica2023*
+#    key-store-type: PKCS12
+#    key-alias: tomcat
+#    trust-store: classpath:truststore.jks # Agregar esta línea
+#    trust-store-password: fabrica2023* # Reemplazar con la contraseña del truststore
+#    trust-store-type: PKCS12
+
+spring:
+  application:
+    name: DBOlimpo
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/DBOlimpo
+    username: postgres
+    password: "fabrica2024*"
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+       # ddl-auto: create-drop
+       ddl-auto: update # Ajustar a 'none' en producción
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true # Ajustar a 'false' en producción
+
+  main:
+    allow-circular-references: true
+    open-in-view: false # Propiedad clave para replicar el comportamiento de AquilesApp
+
+logging:
+  level:
+    com.senacsf.olimpo.app.service: INFO
+
+# Configuración adicional para Spring Security, si es necesario
+security:
+  enabled: true
+
+  olimpo:
+    auth:
+      url: https://localhost:8081/api/auth/login
+      cert:
+        path: classpath:olimpo_cert.pem

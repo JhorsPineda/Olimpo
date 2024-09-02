@@ -1,0 +1,6 @@
+1. Entidad (entities) ok
+2. Repositorio (repository) ok
+3. Servicio (service) se está implementado (Idao) ok
+4. Data Transfer Object (dto) ok
+5. Lógica de Negocio (business) ok
+6. Controlador (controller) 
